@@ -10,6 +10,18 @@ const campsiteRouter = require("./routes/campsiteRouter");
 const partnerRouter = require("./routes/partnerRouter");
 const promotionRouter = require("./routes/promotionRouter");
 
+const mongoose = require("mongoose");
+const url = "mongodb://localhost:27017/nucampsite";
+const connect = mongoose.connect(url, {
+  useCreateIndex: true,
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+  useFindAndModify: false,
+});
+
+connect.then(() => {
+  console.log("connected to the server ");
+});
 var app = express();
 
 // view engine setup
